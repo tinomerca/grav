@@ -1,0 +1,60 @@
+title: Identity
+form:
+    fields:
+        custom:
+            type: section
+            title: Extra Fields
+            underline: true
+
+            fields:
+                tel:
+                    type: text
+                    label: "Telefona"
+                email:
+                    type: text
+                    label: "Email"
+                cx:
+                    type: text
+                    label: "Coordinata cx"
+                cy:
+                    type: text
+                    label: "Coordinata cy"
+                social:
+                    type: list
+                    style: vertical
+                    label: Social
+                    fields:
+                      .name:
+                        type: text
+                        label: Nome
+                      .class:
+                        type: text
+                        label: Classe Icona
+                      .url:
+                        type: text
+                        default: "#"
+                        label: Link
+                external_link:
+                    type: list
+                    style: vertical
+                    label: Carousel Link
+                    fields:
+                      .name:
+                        type: text
+                        label: Titolo
+                      .class:
+                        type: text
+                        label: Classe Icona
+                      .url:
+                        type: text
+                        default: "#"
+                        label: Link
+                      .image:
+                        label: Immagine
+                        type: file
+                        destination: 'user/images'
+                        multiple: false
+                        limit: 1
+                        filesize: 1
+                        accept:
+                            - image/*

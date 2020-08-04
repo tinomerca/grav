@@ -1,0 +1,9 @@
+enabled: true
+route: /search
+template: simplesearch_results
+built_in_css: false
+display_button: false
+filters: 
+order:
+    by: date
+    dir: desc

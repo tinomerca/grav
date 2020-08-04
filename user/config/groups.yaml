@@ -1,0 +1,14 @@
+Editore:
+  groupname: Editore
+  readableName: Editore
+  access:
+    site: {  }
+    admin:
+      login: 'true'
+      cache: 'true'
+      configuration: 'true'
+      configuration_site: 'true'
+      settings: 'true'
+      pages: 'true'
+      configuration_identity: 'true'
+    admin-addon-user-manager: {  }

@@ -1,0 +1,27 @@
+# Include JavaScript and CSS files from official CDN or local
+cdn: true
+
+# Color of banner background
+popup_background_color: '#000'
+# Color of banner text
+popup_text_color: '#fff'
+# Color of button background
+button_background_color: '#f1d600'
+# Color of button text
+button_text_color: '#000'
+# Color of button border
+button_border_color: '#f1d600'
+
+# Position on the website, where the banner will be displayed.
+# top = Top
+# top-pushdown: Top (Pushdown)
+# bottom: Bottom
+# bottom-left: Bottom Left
+# bottom-right: Bottom Right
+position: bottom
+
+# Button layout
+# block: Block (angled corners)
+# classic: Classic (round corners)
+# edgeless: Edgeless
+theme: block
