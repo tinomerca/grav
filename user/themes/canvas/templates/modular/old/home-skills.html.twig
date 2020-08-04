@@ -1,0 +1,15 @@
+<div class="container clearfix">
+ {% for skill in page.header.skills  %}
+                 
+        <div class="col_one_third nobottommargin {% if loop.last %}col_last{% endif%}">
+            <div class="feature-box media-box">
+                <div class="fbox-media">
+                    <img style="border-radius: 2px;" src="{{root_url}}/{{skill['file']|first['path']}}" alt="{{skill['name']}}">
+                </div>
+                <div class="fbox-desc">
+                    {{skill['description']}}
+                </div>
+            </div>
+        </div>
+{%endfor %}
+</div>

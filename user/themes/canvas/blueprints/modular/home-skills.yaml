@@ -1,0 +1,44 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        features:
+          type: tab
+          title: Skills
+          fields:
+            header.skills:
+              name: skills
+              type: list
+              style: vertical
+              label: Skill
+              fields:
+                .name:
+                  type: text
+                  label: Nome
+                .file:
+                  type: file
+                  destination: 'page@:/images/'
+                  multiple: false
+                  limit: 1
+                  filesize: 1
+                  accept:
+                    - image/*
+                .description:
+                  name: content
+                  label: Descrizione
+                  type: editor
+                  autofocus: true
+                  codemirror:
+                    mode: 'text/html'
+                    smartIndent: true
+                    autofocus: true
+                    indentWithTabs: true
+                    lineNumbers: true
+                    styleActiveLine: true
+                    lint: true
+                    theme: "dracula"
+                                 

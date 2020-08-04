@@ -1,0 +1,27 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        options:
+            unset@: true
+        content:
+            unset@: true
+        settings:
+          type: tab
+          title: Impostazioni
+          fields:
+           
+            header.button_class:
+              type: text
+              label: Classe Bottone
+            header.link_to:
+              type: text
+              label: Link TO
+            header.text:
+              type: text
+              label: Testo

@@ -1,0 +1,26 @@
+<div id="side-panel" class="dark">
+
+<div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="icon-line-cross"></i></a></div>
+
+<div class="side-panel-wrap">
+
+	<div class="widget clearfix">
+
+		<h4>{{config.site.title}}</h4>
+
+		<nav class="nav-tree nobottommargin">
+			{% include 'partials/navigation.html.twig' %}
+		</nav>
+
+	</div>
+
+	<div class="widget quick-contact-widget form-widget clearfix">
+		{% block sidepanel %}
+		 {% set formcontatto = page.find('/form-rapido') %}
+		    <h4>{{formcontatto.title}}</h4>
+		    <div class="form-result"></div>
+		      {{ formcontatto.content }}
+		{% endblock %}
+	</div>
+
+</div>

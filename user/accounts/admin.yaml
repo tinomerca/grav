@@ -1,0 +1,14 @@
+state: enabled
+email: nicola@desegno.it
+fullname: Nicola
+title: administrator
+access:
+  admin:
+    super: 'true'
+    login: 'true'
+  site:
+    login: 'true'
+hashed_password: $2y$10$pWqhCZU7gUAgpCwDU4pi8OGUmcGbtFv8TTd52UDyNKUTZfCLq5gyS
+language: it
+twofa_enabled: false
+twofa_secret: 7HNV7XKZPQROEQRFE2J7TMBTHTKBCS7Z

@@ -1,0 +1,12 @@
+{
+  "name": "canvas-grav-frontend",
+  "version": "0.0.1",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "grunt": "^1.0.4",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-watch": "latest"
+  }
+}

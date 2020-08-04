@@ -1,0 +1,38 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        options:
+            unset@: true
+        features:
+          type: tab
+          title: Progetti
+          fields:
+            header.articles:
+              name: articles
+              type: list
+              style: vertical
+              label: Progetto
+              fields:
+                .name:
+                  type: text
+                  label: Nome
+                .location:
+                  type: text
+                  label: Città
+                .file:
+                  type: file
+                  destination: 'page@:/images/'
+                  multiple: false
+                  limit: 1
+                  filesize: 1
+                  accept:
+                    - image/*
+                .url:
+                  type: text
+                  default: "#"
+                  label: Link

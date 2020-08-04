@@ -1,0 +1,35 @@
+<!-- Page Title
+============================================= -->
+{% if page.header.title_image is empty %}
+<section id="page-title">
+
+	<div class="container clearfix">
+		<div class="row">
+			<div class="col-md-6">
+				<h1>{{page.title}}</h1>
+			</div>
+			<div class="col-md-6">
+				{% include 'partials/breadcrumbs.html.twig' %}
+			</div>
+		</div>
+		
+
+	</div>
+
+</section><!-- #page-title end -->
+
+{% else %}
+{% set background = page.header.title_image|first['path'] %}
+
+<section id="page-title" 
+		class=" page-title-dark title-background" 
+		style="background: url('{{base_url_simple}}/{{background}}') 0px 0px / cover; padding: 60px 0px;" 
+		data-center="background-position: 0px -60px;" data-top-bottom="background-position:0px 60px;">
+
+	<div class="container clearfix">
+	<h1>{{page.title}}</h1>
+	{% include 'partials/breadcrumbs.html.twig' %}
+	</div>
+</section>
+
+{% endif %}

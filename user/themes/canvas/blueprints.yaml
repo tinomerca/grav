@@ -1,0 +1,79 @@
+name: Canvas
+version: 0.1.0
+description: canvas theme
+icon: rebel
+author:
+  name: desegno
+  email: nicola@desegno.it
+homepage: https://github.com/desegno/grav-theme-canvas
+demo: http://demo.yoursite.com
+keywords: grav, theme, etc
+bugs: https://github.com/desegno/grav-theme-canvas/issues
+readme: https://github.com/desegno/grav-theme-canvas/blob/develop/README.md
+license: MIT
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        settings:
+          type: tab
+          title: Impostazioni
+          fields:
+            tel:
+                type: text
+                label: "Num Telefono"
+            email:
+                type: text
+                label: "Email"
+            social:
+                type: list
+                style: vertical
+                label: Social
+                fields:
+                  .name:
+                    type: text
+                    label: Nome
+                  .class:
+                    type: text
+                    label: Classe Icona
+                  .url:
+                    type: text
+                    default: "#"
+                    label: Link
+        sections:
+          type: tab
+          title: Sezioni
+          fields:
+            .footer:
+              type: editor
+              label: "Footer"
+              autofocus: true
+              codemirror:
+                mode: 'text/html'
+                smartIndent: true
+                autofocus: true
+                indentWithTabs: true
+                lineNumbers: true
+                styleActiveLine: true
+                lint: true
+                theme: "dracula"
+            .copyright:
+              type: editor
+              label: "Copyright"
+              autofocus: true
+              codemirror:
+                mode: 'text/html'
+                smartIndent: true
+                autofocus: true
+                indentWithTabs: true
+                lineNumbers: true
+                styleActiveLine: true
+                lint: true
+                theme: "dracula"
+             
+
+    

@@ -1,0 +1,23 @@
+<div class="widget clearfix">
+
+    <h4>Sponsor</h4>
+    <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
+     {% for links in site.external_link %}
+        <div class="oc-item">
+            <div class="iportfolio">
+                <div class="portfolio-image">
+                    <a href="#">
+                        <img src="{{base_simple_url}}/{{links['image']|first['path']}}" alt="{{links.name}}">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="{{base_simple_url}}/{{links['image']|first['path']}}" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                    </div>
+                </div>
+ 
+            </div>
+        </div>
+      {% endfor %}
+
+    </div>
+
+</div>

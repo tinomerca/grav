@@ -1,0 +1,63 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        features:
+          type: tab
+          title: Clienti
+          fields:
+            header.clients:
+              name: clients
+              type: list
+              style: vertical
+              label: Cliente
+              fields:
+                .name:
+                  type: text
+                  label: Nome
+                .file:
+                  type: file
+                  destination: 'page@:/images/'
+                  multiple: false
+                  limit: 1
+                  filesize: 1
+                  accept:
+                    - image/*
+                .url:
+                  type: text
+                  default: "#"
+                  label: Sito internet
+        html:
+          type: tab
+          title: HTML
+          fields:
+            header.content1:
+              name: content
+              type: editor
+              autofocus: true
+              codemirror:
+                mode: 'text/html'
+                smartIndent: true
+                autofocus: true
+                indentWithTabs: true
+                lineNumbers: true
+                styleActiveLine: true
+                lint: true
+                theme: "dracula"
+            header.content2:
+              name: content
+              type: editor
+              autofocus: true
+              codemirror:
+                mode: 'text/html'
+                smartIndent: true
+                autofocus: true
+                indentWithTabs: true
+                lineNumbers: true
+                styleActiveLine: true
+                lint: true
+                theme: "dracula"             

@@ -1,0 +1,153 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        options:
+            unset@: true
+        content:
+            unset@: true
+        settings:
+          type: tab
+          title: Impostazioni
+          fields:
+
+            header.image_lightbox:
+              type: toggle
+              label: LightBox Immagine
+              default: 0
+              options:
+                1: Si
+                0: No
+            header.image_class:
+              type: text
+              label: Classe Immagine
+            header.margin_class:
+              type: text
+              label: Margin Class
+            header.container:
+              type: toggle
+              label: Boxed / Full
+              default: 2
+              options:
+                1: Full
+                2: Boxed
+        features:
+          type: tab
+          title: Colonne
+          fields:
+
+            header.columns:
+              name: columns
+              type: list
+              style: vertical
+              label: Colonna
+              btnLabel: 'Aggiungi Colonna'
+              limit: 4
+              fields:
+                .impostazioni:
+                  type: section
+                  title: Impostazioni
+                  underline: true
+                .col_grid:
+                  type: toggle
+                  label: Layout Grid
+                  default: 4
+                  options:
+                    1: Full
+                    2: 2 Colonne
+                    3: 3 Colonne
+                    4: 4 Colonne
+                .new_row:
+                  type: toggle
+                  label: Nuova Riga?
+                  default: 1
+                  options:
+                    1: No
+                    2: Si
+                .titolo:
+                  type: section
+                  title: Titolo
+                  underline: true
+                .title:
+                  type: text
+                  label: Titolo
+                .title_class:
+                    type: text
+                    label: Classe Titolo
+                .title_size:
+                    type: text
+                    label: Grandezza Titolo
+                .subtitle:
+                  type: text
+                  label: Sottotitolo
+                .subtitle_class:
+                    type: text
+                    label: Classe Sottotitolo
+                .testo:
+                    type: section
+                    title: TESTO
+                    underline: true
+                .text_class:
+                    type: text
+                    label: Classe Testo
+                .text:
+                    type: tinymce
+                    label: Testo
+                .link_to:
+                      type: text
+                      label: Bottone link to
+                .link_to_class:
+                      type: text
+                      label: Class del bottone
+                .link_position:
+                    type: toggle
+                    label: Posizione
+                    default: 'left'
+                    options:
+                      'left' : left
+                      'center': center
+                      'right': right
+                .text_link:
+                        type: text
+                        label: Testo del Bottone
+                        default: 'Leggi'
+                .immagine:
+                    type: section
+                    title: Gallery
+                    underline: true
+                .image:
+                    label: Gallery
+                    type: file
+                    multiple: true
+                    limit: 10
+                    filesize: 1
+                    destination: 'page@:/images'
+                    accept:
+                      - image/*
+                .video:
+                    type: section
+                    title: Video
+                    underline: true
+                .video_link:
+                    type: text
+                    label: Video link
+                .video_title:
+                    type: text
+                    label: Video titolo
+                .video_class:
+                    type: text
+                    label: Video Class
+                .video_preview:
+                      type: file
+                      label: Immagine
+                      destination: 'page@:/images/'
+                      multiple: false
+                      limit: 1
+                      filesize: 1
+                      accept:
+                        - image/*

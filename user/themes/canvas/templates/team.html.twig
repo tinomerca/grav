@@ -1,0 +1,43 @@
+{% extends 'layout/base.html.twig' %}
+
+
+{% set teams = page.header.teams %}
+
+{% block body %}
+
+{% include 'partials/_title.html.twig' %}
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="fancy-title title-border">
+                    <h3>La Nostra Squadra</h3>
+                </div>
+
+                <div class="row">
+                    {% for team in teams %}
+                        <div class="col-lg-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <img src="{{team['file']|first['path']}}" alt="{{ team.name }}">
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>{{ team.name }}</h4><span>{{ team.qualifica }}</span></div>
+                                    <div class="team-content">
+                                        <p>{{ team.description }}</p>
+                                    </div>
+                                    <a href="{{ team.fb }}" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                        <i class="fa fa-facebook p-lg-10"></i>
+                                        <i class="fa fa-facebook p-lg-10"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

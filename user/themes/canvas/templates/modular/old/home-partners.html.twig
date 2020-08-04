@@ -1,0 +1,40 @@
+<div class="container topmargin-lg cleafix">
+	<div class="clear"></div><div class="line notopmargin"></div>
+
+	<div class="col_two_fifth">
+		<h4>{{page.title}}</h4>
+		<p>{{page.content}} </p>
+		<ul class="clients-grid grid-3 nobottommargin clearfix">
+			{% for image in page.find('/home/_news').media.images %}
+			  <li style="padding: 20px;"><a href="#"><img src="{{image.url}}" alt="Clienti"></a></li>
+	        {% endfor %}
+		</ul>
+	</div>
+
+	<div class="col_three_fifth col_last">
+		<h4>Recent News</h4>
+
+		<div id="oc-posts" class="owl-carousel posts-carousel carousel-widget" data-margin="20" data-nav="true" data-pagi="true" data-items-xs="1" data-items-xl="2">
+           {% for post in page.find('/blog').children.order('date', 'desc').slice(0, 5) %}
+            {% set image = post.media.images|first %}
+			<div class="oc-item">
+				<div class="ipost clearfix">
+					<div class="entry-image">
+						<a href="{{ image.url }}" data-lightbox="image"><img class="image_fade" src="{{ image.url }}" alt="{{ post.title }}"></a>
+					</div>
+					<div class="entry-title">
+						<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+					</div>
+					 
+					<div class="entry-content">
+						<p>{{ post.content }}</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+ 
+
+		</div>
+
+	</div>
+</div>

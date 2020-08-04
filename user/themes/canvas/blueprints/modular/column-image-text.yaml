@@ -1,0 +1,75 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        options:
+            unset@: true
+        content:
+            unset@: true
+        settings:
+          type: tab
+          title: Impostazioni
+          fields:
+            header.number_columns:
+              type: toggle
+              label: Numero Colonne
+              default: 4
+              options:
+                2: 2 Colonne
+                3: 3 Colonne
+                4: 4 Colonne
+            header.title_class:
+              type: text
+              label: Classe Titolo
+            header.subtitle_class:
+              type: text
+              label: Classe Sottotitolo
+            header.text_class:
+              type: text
+              label: Classe Testo
+            header.image_lightbox:
+              type: toggle
+              label: LightBox Immagine
+              default: 0
+              options:
+                1: Si
+                0: No
+            header.image_class:
+              type: text
+              label: Classe Immagine
+
+        features:
+          type: tab
+          title: Colonne
+          fields:
+            
+            header.columns:
+              name: columns
+              type: list
+              style: vertical
+              label: Colonna
+              limit: 4
+              fields:
+                .title:
+                  type: text
+                  label: Titolo
+                .subtitle:
+                  type: text
+                  label: Sottotitolo
+                .text:
+                  type: textarea
+                  label: Testo
+
+                .image:
+                  type: file
+                  multiple: false
+                  limit: 1
+                  filesize: 1
+                  destination: 'page@:/images/'
+                  accept:
+                    - image/*

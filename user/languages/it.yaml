@@ -1,0 +1,16 @@
+
+SHARE: "Condividi"
+PHONE: "Telefono"
+EMAIL: "Email"
+LIKEUS: "Condividi"
+RECENT_POSTS: "Ultimi articoli"
+ON: "Su"
+COPYRIGHT: "Tutti i diritti riservati"
+MONTHS_OF_THE_YEAR: [Gennaio, Febbraio, Marzo, Aprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
+
+PLUGINS:
+  COOKIECONSENT:
+    CONTENT_MESSAGE: "Utilizziamo i cookie per migliorare i nostri servizi. Avvalendoti dei nostri servizi accetti la politica sull'uso dei cookie."
+    CONTENT_DISMISS: "Prosegui!"
+    CONTENT_LINK: "Scopri di più"
+    CONTENT_HREF: "/privacy"

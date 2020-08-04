@@ -1,0 +1,5 @@
+<div class="col_full portfolio-single-image masonry-thumbs grid-4" data-big="1" data-lightbox="gallery">
+	{% for image in page.media.images %}
+		<a href="{{image.url}}" data-lightbox="gallery-item"><img class="image_fade" src="{{image.url}}" alt="{{page.title}}"></a>
+	{%endfor%}
+</div><!-- .portfolio-single-image end -->

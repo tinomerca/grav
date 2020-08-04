@@ -1,0 +1,21 @@
+ 
+
+{% set conf = page.header.conf %}
+
+<section id="content">
+
+    <div class=" ">
+        {% if conf.fullwidth is empty %}<div class="container clearfix">{% endif %}
+        <div class="clearfix">
+            <h3>Gallery</h3>
+            <div class="masonry-thumbs grid-6" data-big="1" data-lightbox="gallery">
+                {% for image in page.media.images%}
+                <a href="{{image.url}}" data-lightbox="gallery-item">
+                    <img class="image_fade" src="{{image.url}}" alt="{{page.title}}">
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% if conf.fullwidth is empty %}</div>{% endif %}
+    </div>
+</section>

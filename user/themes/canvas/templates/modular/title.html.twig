@@ -1,0 +1,23 @@
+{#
+    ##### help 
+    container = fullwidth o boxato
+    border_bottom = barrato sotto alla descrizione
+    is_grey = background color grigio
+    
+#}
+
+{% set conf = page.header.conf %}
+{% set container = conf.fullwidth ? '' : 'container' %}
+{% set border_bottom = conf.border_bottom  %}
+{% set is_grey = conf.is_grey  %}
+
+{% if is_grey is not empty%}<div class="section nobottommargin">{% endif %}
+    <div class="{{container}} clearfix">
+
+        <div class="heading-block center {{border_bottom}}">
+            <h3>{{conf.title}}</h3>
+            <span>{{conf.desc}}</span>
+        </div>
+
+    </div>
+{% if is_grey is not empty%}</div>{% endif %}

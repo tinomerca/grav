@@ -1,0 +1,21 @@
+
+{% for p in siblings %}
+    <div class="oc-item">
+        <div class="iportfolio">
+            <div class="portfolio-image">
+                <a href="{{p.url}}">
+                    <img src="{{(p.media.images|first).url}}" alt="{{p.title}}">
+                </a>
+                <div class="portfolio-overlay">
+                    <a href="{{(p.media.images|first).url}}" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                    <a href="{{p.url}}" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-desc">
+                <h3><a href="{{p.url}}">{{p.title}}</a></h3>
+                
+            </div>
+        </div>
+    </div>
+{% endfor %}
+

@@ -1,0 +1,28 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block body %}
+    {% include 'partials/_title.html.twig' %}
+        <div class="container ">
+            <div class="content-wrap">
+                <div class="topmargin">{{ page.content|raw }}</div>
+            </div>
+        </div>
+        <div class="clear"></div>
+{% endblock %}
+
+
+{% do assets.addCss('theme://leaflet/leaflet.css', 98) %}
+{% do assets.addJs('theme://leaflet/leaflet.js', {group:'bottom'}) %}
+
+{% script in 'bottom' priority: 20 %}
+$(document).ready(function() {
+    var map = L.map('mapid').setView([{{site.cx}}, {{site.cy}}], 13);
+    var marker = L.marker([{{site.cx}}, {{site.cy}}]).addTo(map);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: 'OpenStreetMap' 
+    }).addTo(map);
+});
+{% endscript %}
+{% do assets.addInlineJs(script) %}
+
+ 

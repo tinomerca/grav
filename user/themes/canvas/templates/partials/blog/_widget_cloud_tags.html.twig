@@ -1,0 +1,10 @@
+<div class="widget clearfix">
+
+    <h4 class="nomargin">Tag Cloud</h4>
+    <div class="tagcloud">
+    {% for tag in taxonomy.getTaxonomyItemKeys('tag') %}
+        <a href="{{new_base_url}}/tag:{{tag}}">{{tag}}</a>
+    {% endfor %}
+    </div>
+   
+</div>

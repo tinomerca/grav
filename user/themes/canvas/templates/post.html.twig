@@ -1,0 +1,135 @@
+{% extends 'layout/base.html.twig' %}
+
+
+{% block body %}
+ 
+    <section id="page-title">
+		<div class="container clearfix">
+			<h1>News</h1>
+			{% include 'partials/breadcrumbs.html.twig' %}
+
+		</div>
+    </section><!-- #page-title end -->
+
+    
+    <!-- Content
+		============================================= -->
+	<section id="content">
+
+		<div class="content-wrap">
+
+			<div class="container clearfix">
+
+				<!-- Post Content
+				============================================= -->
+				<div class="postcontent nobottommargin clearfix">
+
+					<div class="single-post nobottommargin">
+
+						<!-- Single Post
+						============================================= -->
+						<div class="entry clearfix">
+							<!-- Entry Title
+							============================================= -->
+							<div class="entry-title">
+								<h2>{{page.title}}</h2>
+							</div><!-- .entry-title end -->
+
+							<!-- Entry Meta
+							============================================= -->
+							<ul class="entry-meta clearfix">
+
+								<li><i class="icon-calendar3"></i>{{ post.date|date('d') }} {{ 'GRAV.MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }} {{ post.date|date('Y') }}</li>
+								<li><a href="#"><i class="icon-user"></i> admin</a></li>
+							</ul><!-- .entry-meta end -->
+
+							<!-- Entry Image
+							============================================= -->
+							<div class="entry-image">
+							{% set image = page.media.images|first %}
+								{% if image %}
+								<a href="{{ page.url }}">{{ image.cropZoom(850,560).html|raw }}</a>
+								{% else %}
+								<a href="https://via.placehold.it/1280x800" data-lightbox="image"><img class="image_fade"
+										src="https://via.placehold.it/850x560" alt="{{ page.title }}"></a>
+								{% endif %}
+							</div><!-- .entry-image end -->
+
+							<!-- Entry Content
+							============================================= -->
+							<div class="entry-content notopmargin">
+
+								{{page.content}}
+								<!-- Post Single - Content End -->
+
+								{% if page.taxonomy['tag']|length > 1 %} 
+								<!-- Tag Cloud
+								============================================= -->
+								<h4 class="nomargin">Tags</h4>
+								<div class="tagcloud clearfix bottommargin">
+			
+								{% for tag in page.taxonomy['tag'] %}
+									<a href="{{new_base_url}}/tag:{{tag}}">{{tag}}</a>
+								{% endfor %}
+								</div>
+								{% endif %}
+								
+
+								<div class="clear"></div>
+
+								<!-- Post Single - Share
+								============================================= -->
+								<div class="si-share noborder clearfix">
+									<span>Condividi:</span>
+										
+									<div class="addthis_inline_share_toolbox"></div>
+		
+								</div><!-- Post Single - Share End -->
+
+							</div>
+						</div><!-- .entry end -->
+
+						<!-- Post Navigation
+						============================================= -->
+						<div class="post-navigation clearfix">
+							{% set p = page.collection({ items: '@self.siblings'}).slice(0,2) %}
+							{% set f = p|first%}
+							{% set l = p|last%}
+							<div class="col_half nobottommargin">
+								<a href="{{f.url}}">&lArr; {{f.title}}</a>
+							</div>
+
+							<div class="col_half col_last tright nobottommargin">
+								<a href="{{l.url}}">{{l.title}} &rArr;</a>
+							</div>
+							
+						</div><!-- .post-navigation end -->
+
+						<div class="line"></div>
+
+					</div>
+
+				</div><!-- .postcontent end -->
+
+				<!-- Sidebar
+				============================================= -->
+				<div class="sidebar nobottommargin col_last clearfix">
+					<div class="sidebar-widgets-wrap">
+
+						{% include 'partials/blog/_widget_popular.html.twig' %}
+						{% include 'partials/blog/_widget_external_links.html.twig' %}
+						{% include 'partials/blog/_widget_cloud_tags.html.twig' %}
+					</div>
+
+				</div><!-- .sidebar end -->
+
+			</div>
+
+		</div>
+
+	</section><!-- #content end -->
+
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e1d7ffae001d798"></script>
+ 
+{% endblock %}

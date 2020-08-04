@@ -1,0 +1,41 @@
+{% extends 'partials/simplesearch_base.html.twig' %}
+
+{% block body %}
+<section id="page-title">
+    <div class="container clearfix">
+        <h1>News</h1>
+        {% include 'partials/breadcrumbs.html.twig' %}
+
+    </div>
+</section><!-- #page-title end -->
+
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+
+                <!-- Post Content
+                ============================================= -->
+                <div class="postcontent nobottommargin clearfix">
+
+                    <h1 class="search-header">{{ "PLUGIN_SIMPLESEARCH.SEARCH_RESULTS"|t }}</h1>
+                   
+                        {% include 'partials/simplesearch_searchbox.html.twig' %}
+                    
+                    <p>
+                        {% if query %}
+                            {% set count = search_results ? search_results.count : 0 %}
+                            {% if count is same as( 1 ) %}
+                                {{ "PLUGIN_SIMPLESEARCH.SEARCH_RESULTS_SUMMARY_SINGULAR"|t(query|e)|raw }}
+                            {% else %}
+                                {{ "PLUGIN_SIMPLESEARCH.SEARCH_RESULTS_SUMMARY_PLURAL"|t(query|e, count)|raw }}
+                            {% endif %}
+                        {% endif %}
+                    </p>
+                    {% for page in search_results %}
+                        {% include 'partials/simplesearch_item.html.twig' with {'page': page} %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,43 @@
+{#
+    ##### help MD
+    main_class = classe della div padre (default container)
+    col_left = classe colonna sinistra
+	col_right = classe colonna destra
+	animate = classe animazione entrata foto
+	title = titolo
+	subtitle = sottotitolo
+	desc = testo descrittivo
+	link = link destinazione (se vuoto non compare il tasto)
+	link_title = label del bottone
+	divider = hr divisorio
+	heading_block = definisce la classe del titolo in particolare puoi assegnare topmargin o noborder
+	file = immagine caricata
+
+    
+#}
+
+{% set conf = page.header.conf %}
+{% set container = conf.main_class ? conf.main_class : 'container' %}
+{% set col_1 = conf.col_left ? conf.col_left : 'col_three_fifth' %}
+{% set col_2 = conf.col_right ? conf.col_right : 'col_two_fifth' %}
+{% set heading_block = conf.heading_block ? : 'heading-block topmargin'  %}
+
+
+<div class="{{container}}">
+	<div class="{{col_1}} topmargin-sm bottommargin">
+		<img data-animate="{{conf.animate}}" src="{{conf['file']|first['path']}}" alt="{{conf.title}}">
+	</div>
+	<div class="{{col_2}} topmargin-sm bottommargin-lg col_last">
+	   
+		<div class="{{heading_block}}">
+			<h2>{{conf.title}}</h2>
+			{% if conf.subtitle %}<span>{{conf.subtitle}}</span>{% endif %}
+		</div>
+		<p>{{conf.desc}}</p>
+		{% if conf.link is not empty%}
+		<a href="{{conf.link}}" class="button button-border button-rounded button-large noleftmargin topmargin-sm">{{conf.link_title}}</a>
+		{% endif %}
+	</div>
+	<div class="clearfix"></div>
+	{% if conf.divider is not empty%}<div class="line"></div>{% endif %}
+</div>

@@ -1,0 +1,8 @@
+ <div class="swiper-slide {{slide.background_color}}" style="background-image: url('{{slide['file']|first['path']}}'); background-position: center top;">
+	<div class="container clearfix">
+		<div class="{{slide.caption_class}}">
+			<h2 data-animate="{{slide.fade}}">{{slide.title}}</h2>
+			<p class="{{slide.text_show}}" data-animate="{{slide.fade}}" data-delay="{{slide.delay_time}}">{{slide.text}}</p>
+		</div>
+	</div>
+</div>	

@@ -1,0 +1,30 @@
+{% set section_class =  page.header.section_class  ? page.header.section_class : 'section nomargin notopborder nobg'  %}
+{% set section_style =  page.header.section_style  ? page.header.section_style : 'padding: 80px 0 60px;'  %}
+{% set container_class =  page.header.container_class  ? page.header.container_class : 'container center clearfix'  %}
+{% set title_class =  page.header.title_class  %}
+{% set title =  page.header.title  %}
+{% set title_size =  page.header.title_size  %}
+{% set subtitle =  page.header.subtitle  %}
+{% set corpo =  page.header.corpo  %}
+
+
+<div class="{{section_class}}" style="{{section_style}}">
+    <div class="{{container_class}}">
+       
+        <div class="{{title_class}}">
+            {% switch title_size %}
+                {% case 2 %}
+                <h2>{{title}}</h2>
+                {% case 3 %}
+                <h3>{{title}}</h3>
+                {% case 4 %}
+                <h4>{{title}}</h4>
+                {% default %}
+                <h2>{{title}}</h2>
+            {% endswitch %}
+            {% if subtitle %}<span>{{subtitle}}</span>{% endif %}
+        </div>
+
+        {{corpo}}
+    </div>
+</div>

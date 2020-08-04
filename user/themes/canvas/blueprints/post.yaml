@@ -1,0 +1,21 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+
+      fields:
+        blog:
+          type: tab
+          title: Post Setting
+
+          fields:
+
+            header.settings.to_link :
+              type: text
+              label: Link a risorsa esterna
+            header.settings.to_link_title :
+                type: text
+                label: Titolo del link
+            
+             

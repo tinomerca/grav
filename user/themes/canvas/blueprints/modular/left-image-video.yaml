@@ -1,0 +1,54 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        options:
+            unset@: true
+        content:
+            unset@: true
+        settings:
+          type: tab
+          title: Impostazioni
+          fields:
+            header.background_color:
+              type: text
+              label: Class
+              validate:
+                type: string
+        features:
+          type: tab
+          title: Contenuto
+          fields:
+            
+            header.conf:
+              type: fieldset
+              title: Configurazione
+              text: Commento per spiegazione
+              collapsed: false      # Initial state of fieldset (see collapsible option)
+              collapsible: false    # Whether one can expand the fieldset or not
+              fields:
+                header.conf.title:
+                  type: text
+                  label: Titolo
+                header.conf.subtitle:
+                  type: text
+                  label: Sotto titolo
+                header.conf.desc:
+                  type: textarea
+                  label: Testo
+                header.conf.video_link:
+                  type: text
+                  label: Link Video
+                header.conf.video_image:
+                  type: file
+                  destination: 'page@:/images/'
+                  multiple: false
+                  limit: 1
+                  filesize: 1
+                  accept:
+                    - image/*

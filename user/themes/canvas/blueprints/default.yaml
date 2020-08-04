@@ -1,0 +1,30 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        options:
+          fields:
+            column1:
+
+              fields:
+               header.title:
+                  label: 'Titolo'
+                  type: text
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                   fields:
+                        header.title_image:
+                            label: 'Background nel titolo'
+                            type: file
+                            destination: 'page@:/images/'
+                            multiple: false
+                            limit: 1
+                            filesize: 1
+                            accept:
+                                - image/*
+

@@ -1,0 +1,18 @@
+state: enabled
+email: n@test.it
+access:
+  site: {  }
+  admin: {  }
+  admin-addon-user-manager: {  }
+fullname: test
+title: sig.
+hashed_password: $2y$10$Jij8E.CMTzCpdJFBXpmfy.Gi8d0pPMIE3HoAm5VMpE.uWowaVZSOC
+language: it
+twofa_enabled: false
+twofa_secret: 7HNV7XKZPQROEQRFE2J7TMBTHTKBCS7Z
+groups:
+  - Editore
+_json:
+  avatar: '[]'
+  state: '"enabled"'
+  hashed_password: '"$2y$10$Jij8E.CMTzCpdJFBXpmfy.Gi8d0pPMIE3HoAm5VMpE.uWowaVZSOC"'

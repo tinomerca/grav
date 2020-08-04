@@ -1,0 +1,40 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block body %}
+    {% include 'partials/_title.html.twig' %}
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="col_half">
+                    <div class="heading-block">
+                        <h3>{{page.header.conf.subtitle}}</h3>
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dignissimos recusandae harum ipsa nemo suscipit eius necessitatibus cumque laudantium possimus sequi, tempora odit quidem, placeat magni dolorum repudiandae quisquam explicabo.</p>
+                    </div>
+                </div>
+                <div class="col_half col_last">
+                    <div class="entry-image">
+                    {% set image = page.media.images|first %}
+                        {% if image %}
+                        {{ image.cropZoom(550,360).html(page.title,page.title,"image_fade") }} 
+                        {% else %}
+                       <img class="image_fade"
+                                src="https://placehold.it/850x560" alt="{{ page.title }}">
+                        {% endif %}
+                    </div><!-- .entry-image end -->
+                </div>
+                <div class="clearfix"></div>
+                <div id="content" > 
+                    {{ page.content }}
+                </div>
+            </div>
+            <div class="heading-block center clearfix" style="padding:50px 0; background: #eee;margin:0">
+                <h3>ULTIME NOTIZIE</h3>
+            </div>
+             {% include "partials/_last_news.html.twig" %}
+
+        </div>
+    </section>
+{% endblock %}
+

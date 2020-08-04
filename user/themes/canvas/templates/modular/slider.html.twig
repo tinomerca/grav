@@ -1,0 +1,93 @@
+{#
+	section_class: wrapper_class -> heigth: 100% wrapper_class_500 -> heigth: 500px
+	
+	
+#}
+
+
+{% set config   		 	 =  page.header %}
+{% set section_class       	=  config.section_class ? config.section_class : 'slider-element  full-screen dark  slider-parallax-visible'%}
+{% set container_class     	=  config.container_class ? config.container_class : 'swiper-container swiper-parent swiper-container-initialized swiper-container-horizontal'%}
+{% set wrapper_class      	=  config.wrapper_class ? config.wrapper_class %}
+{% set background_image     =  config.background_image ? config.background_image : ''%}
+{% set custom_style  		=  config.style ? config.style : '' %}
+{% set loop          		=  config.loop ? config.loop : 'true' %}
+{% set speed         		=  config.speed ? config.speed : '450' %}
+{% set autoplay      		=  config.autoplay ? config.autoplay : '5000' %}
+{% set text_rotate      	=  config.text_rotate ? config.text_rotate : '' %}
+{% set scrollbar     		=  config.scrollbar ? true : false %}
+{% set button_text     	 	=  config.button_text %}
+{% set button_link     	 	=  config.button_link %}
+{% set button_scrool_to     =  config.button_scrool_to %}
+{% set video_overlay  	 	=  config.video_overlay %}
+
+{#style="background-image: url('{{ background_image|first['path'] }}'); background-size: cover; background-position: center center;"#}
+{% set slides 				= page.header.slides %}
+
+
+<section id="slider" class="{{section_class}} "  data-loop="{{loop}}" data-autoplay="{{autoplay}}" data-speed="{{speed}}">
+	<div class="slider-parallax-inner" >
+	<div class="{{container_class}}">
+	 	<div class="{{wrapper_class}}" >
+
+	
+			{% if (slides|length > 0) %}
+				{% for slide in slides  %}
+					{% include 'partials/_slide.html.twig' %}
+				{%endfor %}
+			{% else %}
+			<div class="container center">
+				<div class="vertical-middle">
+					<div class="emphasis-title">
+						<h1>
+							<span class="text-rotater nocolor" data-separator="|" data-rotate="fadeIn" data-speed="6000">
+								<span class="t-rotate t700 font-body opm-large-word">{{ text_rotate }}</span>
+							</span>
+						</h1>
+					</div>
+					{% if button_link  %}
+					<a href="#" class="button button-border button-light button-circle" data-scrollto="{{button_link}}" data-easing="easeInOutExpo" data-speed="1250" data-offset="70">{{button_text}}</a>
+					{% endif %}
+				</div>
+			</div>
+			{% endif %}
+
+			
+			
+			{% if video_overlay  %}
+			<div class="video-wrap">
+				<div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
+			</div>
+			{% endif %}
+			{% if button_scrool_to  %}
+			<a href="#" data-scrollto="{{button_scrool_to}}" data-easing="easeInOutExpo" data-speed="1250" data-offset="65" class="one-page-arrow dark"><i class="icon-angle-down infinite animated fadeInDown"></i></a>
+			{% endif %}
+		
+		</div>
+		{% if navs  %}
+		<div class="swiper-navs">
+			<div class="slider-arrow-left" id="slider-arrow-left"><i class="fa fa-angle-left"></i></div>
+			<div class="slider-arrow-right" id="slider-arrow-right"><i class="fa fa-angle-right"></i></div>
+		
+		</div>
+		{% endif %}
+		{% if scrollbar  %}
+		<div class="swiper-scrollbar">
+			<div class="swiper-scrollbar-drag">
+			<div class="slide-number"><div class="slide-number-current"></div><span>/</span><div class="slide-number-total"></div></div></div>
+		</div>
+		{% endif %}
+
+	</div>
+	 
+	
+	 
+</section>
+
+ 
+		 
+
+
+
+
+	 

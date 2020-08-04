@@ -1,0 +1,52 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        options:
+            unset@: true
+        content:
+            unset@: true
+        settings:
+          type: tab
+          title: Impostazioni
+          fields:
+           
+            header.section_class:
+              type: text
+              label: Section Class
+            header.section_style:
+              type: text
+              label: Section Style
+            header.container_class:
+              type: text
+              label: Class Container
+            header.title_class:
+              type: text
+              label: Class titolo
+            header.title_size:
+              type: text
+              label: Size titolo
+            header.title:
+              type: text
+              label: Titolo
+            header.subtitle:
+              type: text
+              label: Sub titolo
+            header.corpo:
+                text: Body
+                type: editor
+                autofocus: true
+                codemirror:
+                  mode: 'text/html'
+                  smartIndent: true
+                  autofocus: true
+                  indentWithTabs: true
+                  lineNumbers: true
+                  styleActiveLine: true
+                  lint: true
+                  theme: "dracula"

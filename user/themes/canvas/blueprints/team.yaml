@@ -1,0 +1,53 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        options:
+            unset@: true
+        content:
+            unset@: true
+        settings:
+          type: tab
+          title: Impostazioni
+          fields:
+            header.background_color:
+              type: text
+              label: Class
+              validate:
+                type: string
+        features:
+          type: tab
+          title: Team
+          fields:
+            
+            header.teams:
+              name: teams
+              type: list
+              style: vertical
+              label: Persona
+              fields:
+                .name:
+                  type: text
+                  label: Nome
+                .qualifica:
+                  type: text
+                  label: Qualifica
+                .fb:
+                  type: text
+                  label: Facebook link
+                .description:
+                  type: text
+                  label: Testo descrittivo
+                .file:
+                  type: file
+                  destination: 'page@:/images/'
+                  multiple: false
+                  limit: 1
+                  filesize: 1
+                  accept:
+                    - image/*

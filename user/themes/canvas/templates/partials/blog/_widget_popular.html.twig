@@ -1,0 +1,72 @@
+<div class="widget clearfix">
+
+    <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
+
+        <ul class="tab-nav clearfix">
+            <li><a href="#tabs-1">Popolari</a></li>
+            <li><a href="#tabs-2">Recenti</a></li>
+        </ul>
+
+        <div class="tab-container">
+
+            <div class="tab-content clearfix" id="tabs-1">
+                <div id="popular-post-list-sidebar">
+                    {% for post in taxonomy.findTaxonomy({'featured':'popular'}) %}
+                    {% set image = post.media.images|first %}
+                        <div class="spost clearfix">
+                            <div class="entry-image">
+                                <a href="#" class="nobg">
+                                {% if image %}
+                                {{ image.cropZoom(48,48).html(post.title,post.title,"rounded-circle") }}
+                                {% else %}
+                                <img class="rounded-circle" src="https://via.placehold.it/48x48" alt="{{ post.title }}">
+                                {% endif %}
+                                </a>
+                            </div>
+                            <div class="entry-c">
+                                <div class="entry-title">
+                                    <h4><a href="{{post.url}}">{{ post.title }}</a></h4>
+                                </div>
+                                <ul class="entry-meta">
+                                    <li><i class="icon-calendar3"></i>{% include 'partials/_date.html.twig' with {post: post} %} </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    
+
+                </div>
+            </div>
+            <div class="tab-content clearfix" id="tabs-2">
+                <div id="recent-post-list-sidebar">
+
+                    {% for last in page.find('/blog').children.order('date', 'desc').slice(0, 5) %}
+                    {% set image = last.media.images|first %}
+                        <div class="spost clearfix">
+                            <div class="entry-image">
+                                <a href="#" class="nobg">
+                                {% if image %}
+                                {{ image.cropZoom(48,48).html(last.title,post.title,"rounded-circle") }}
+                                {% else %}
+                                <img class="rounded-circle" src="https://via.placehold.it/48x48" alt="{{ last.title }}">
+                                {% endif %}
+                                </a>
+                            </div>
+                            <div class="entry-c">
+                                <div class="entry-title">
+                                    <h4><a href="{{last.url}}">{{ last.title }}</a></h4>
+                                </div>
+                                <ul class="entry-meta">
+                                    <li><i class="icon-calendar3"></i>{{ last.date|date('d') }} {{ 'GRAV.MONTHS_OF_THE_YEAR'|ta(last.date|date('n') - 1) }} {{ last.date|date('Y') }} </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

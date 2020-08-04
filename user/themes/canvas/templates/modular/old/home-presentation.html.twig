@@ -1,0 +1,41 @@
+<section id="content">
+
+    <div class="content-wrap">
+        {{ page.header.content1}}
+
+
+        <div class="container clearfix">
+        {{ page.header.content2}}
+
+
+            <div class="clear"></div><div class="line"></div>
+
+            <div id="oc-clients-full" class="owl-carousel image-carousel carousel-widget" data-margin="30" data-nav="false" data-loop="true" data-autoplay="5000" data-pagi="false" data-items-xs="2" data-items-sm="3" data-items-md="4" data-items-lg="5" data-items-xl="6">
+ 
+                {% for client in page.header.clients  %}
+                  {% include 'partials/clients.html.twig' %}
+                {%endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
+
+<div class="container clearfix">
+ {% for skill in page.header.skills  %}
+                 
+        <div class="col_one_third nobottommargin {{ if skill.isLast 'col_last'}}">
+            <div class="feature-box media-box">
+                <div class="fbox-media">
+                    <img style="border-radius: 2px;" src="{{root_url}}/{{skill['file']|first['path']}}" alt="{{skill['name']}}">
+                </div>
+                <div class="fbox-desc">
+                    {{skill['description']}}
+                </div>
+            </div>
+        </div>
+{%endfor %}
+</div>

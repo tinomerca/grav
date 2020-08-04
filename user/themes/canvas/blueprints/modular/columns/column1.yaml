@@ -1,0 +1,278 @@
+form:
+    fields:
+        .margin_class:
+            type: text
+            label: Margin Class
+        .sectiontop:
+            type: section
+            title:  TOP
+            underline: true
+            text: 'Segue ordine top/middle/bottom: non è obbligatorio partire dal top '
+            fields:
+                header.column1.sectiontop.titolo:
+                    type: fieldset
+                    title: TITOLO
+                    help: Help text
+                    info: Info text
+                    text: Text inside fieldset and before other fields
+                    icon: comments       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectiontop.title:
+                          type: text
+                          label: Titolo
+                      header.column1.sectiontop.title_class:
+                          type: text
+                          label: Classe Titolo
+                      header.column1.sectiontop.subtitle:
+                        type: text
+                        label: Sottotitolo
+                      
+                header.column1.sectiontop.testo:
+                    type: fieldset
+                    title: TESTO
+                    help: Help text
+                    info: Sezione del testo
+                    text: Text inside fieldset and before other fields
+                    icon: edit       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectiontop.text:
+                        label: Testo
+                        type: tinymce
+                        
+
+                header.column1.sectiontop.img:
+                    type: fieldset
+                    title: IMMAGINI
+                    help: Help text
+                    info: Sezione Immagini
+                    text: Text inside fieldset and before other fields
+                    icon: picture-o       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectiontop.image:
+                        type: file
+                        label: Immagini
+                        destination: 'page@:/images/'
+                        multiple: true
+                        limit: 10
+                        filesize: 1
+                        accept:
+                          - image/*
+                      header.column1.sectiontop.image_class:
+                        type: text
+                        label: Class Img
+                header.column1.sectiontop.video:
+                    type: fieldset
+                    title: VIDEO
+                    help: Help text
+                    info: Sezione Video
+                    text: Text inside fieldset and before other fields
+                    icon: youtube       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectiontop.video_link:
+                        type: text
+                        label: Video link 
+                      header.column1.sectiontop.video_title: 
+                        type: text
+                        label: Video titolo
+                      header.column1.sectiontop.video_class:
+                        type: text
+                        label: Video Class
+                      header.column1.sectiontop.video_preview:
+                          type: file
+                          label: Immagine
+                          destination: 'page@:/images/'
+                          multiple: false
+                          limit: 1
+                          filesize: 1
+                          accept:
+                            - image/*
+
+        .sectionmiddle:
+            type: section
+            title:  Middle
+            underline: true
+            fields:                                
+                header.column1.sectionmiddle.titolo:
+                    type: fieldset
+                    title: TITOLO
+                    help: Help text
+                    info: Info text
+                    text: Text inside fieldset and before other fields
+                    icon: comments       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectionmiddle.title:
+                          type: text
+                          label: Titolo
+                      header.column1.sectionmiddle.title_class:
+                          type: text
+                          label: Classe Titolo
+                      header.column1.sectionmiddle.subtitle:
+                        type: text
+                        label: Sottotitolo
+                      
+                header.column1.sectionmiddle.testo:
+                    type: fieldset
+                    title: TESTO
+                    help: Help text
+                    info: Sezione del testo
+                    text: Text inside fieldset and before other fields
+                    icon: edit       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectionmiddle.text:
+                        label: Testo
+                        type: tinymce
+                        
+
+                header.column1.sectionmiddle.img:
+                    type: fieldset
+                    title: IMMAGINI
+                    help: Help text
+                    info: Sezione Immagini
+                    text: Text inside fieldset and before other fields
+                    icon: picture-o       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectionmiddle.image:
+                        type: file
+                        label: Immagini
+                        destination: 'page@:/images/'
+                        multiple: true
+                        limit: 10
+                        filesize: 1
+                        accept:
+                          - image/*
+                      .image_class:
+                        type: text
+                        label: Class Img
+                header.column1.sectionmiddle.video:
+                    type: fieldset
+                    title: VIDEO
+                    help: Help text
+                    info: Sezione Video
+                    text: Text inside fieldset and before other fields
+                    icon: youtube       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectionmiddle.video_link:
+                        type: text
+                        label: Video link 
+                      header.column1.sectionmiddle.video_title: 
+                        type: text
+                        label: Video titolo
+                      header.column1.sectionmiddle.video_class:
+                        type: text
+                        label: Video Class
+                      header.column1.sectionmiddle.video_preview:
+                          type: file
+                          label: Immagine
+                          destination: 'page@:/images/'
+                          multiple: false
+                          limit: 1
+                          filesize: 1
+                          accept:
+                            - image/*     
+        .sectionbottom:
+            type: section
+            title:  bottom
+            underline: true
+            fields:                                
+                header.column1.sectionbottom.titolo:
+                    type: fieldset
+                    title: TITOLO
+                    help: Help text
+                    info: Info text
+                    text: Text inside fieldset and before other fields
+                    icon: comments       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectionbottom.title:
+                          type: text
+                          label: Titolo
+                      header.column1.sectionbottom.title_class:
+                          type: text
+                          label: Classe Titolo
+                      header.column1.sectionbottom.subtitle:
+                        type: text
+                        label: Sottotitolo
+                      
+                header.column1.sectionbottom.testo:
+                    type: fieldset
+                    title: TESTO
+                    help: Help text
+                    info: Sezione del testo
+                    text: Text inside fieldset and before other fields
+                    icon: edit       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectionbottom.text:
+                        label: Testo
+                        type: tinymce
+                        
+                        
+
+                header.column1.sectionbottom.img:
+                    type: fieldset
+                    title: IMMAGINI
+                    help: Help text
+                    info: Sezione Immagini
+                    text: Text inside fieldset and before other fields
+                    icon: picture-o       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectionbottom.image:
+                        type: file
+                        label: Immagini
+                        destination: 'page@:/images/'
+                        multiple: true
+                        limit: 10
+                        filesize: 1
+                        accept:
+                          - image/*
+                      header.column1.sectionbottom.image_class:
+                        type: text
+                        label: Class Img
+                header.column1.sectionbottom.video:
+                    type: fieldset
+                    title: VIDEO
+                    help: Help text
+                    info: Sezione Video
+                    text: Text inside fieldset and before other fields
+                    icon: youtube       # Fork Awesome icons system (see : forkaweso.me).
+                    collapsed: true      # Initial state of fieldset (see collapsible option)
+                    collapsible: true    # Whether one can expand the fieldset or not
+                    fields:
+                      header.column1.sectionbottom.video_link:
+                        type: text
+                        label: Video link 
+                      header.column1.sectionbottom.video_title: 
+                        type: text
+                        label: Video titolo
+                      header.column1.sectionbottom.video_class:
+                        type: text
+                        label: Video Class
+                      header.column1.sectionbottom.video_preview:
+                          type: file
+                          label: Immagine
+                          destination: 'page@:/images/'
+                          multiple: false
+                          limit: 1
+                          filesize: 1
+                          accept:
+                            - image/*     

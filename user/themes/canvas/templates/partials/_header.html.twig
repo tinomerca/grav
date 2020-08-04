@@ -1,0 +1,39 @@
+{% set theme_config   =  attribute(config.themes, config.system.pages.theme) %}
+{% set main_class    =  theme_config.header.main_class ? theme_config.header.main_class : 'static-sticky'%}
+{% set dark_mode     =  theme_config.header.dark_mode == true ? 'dark' : '' %}
+{% set sticky_dark_mode     =  theme_config.header.sticky_dark_mode == true ? 'dark' : 'not-dark' %}
+{% set onepage       =  theme_config.onepage %}
+
+<header id="header" class="{{main_class}} {{dark_mode}}" data-sticky-class="{{sticky_dark_mode}}" data-sticky-offset="0">
+<div id="header-wrap">
+	<div class="container clearfix">
+		<div id="side-panel-trigger" class="side-panel-trigger d-xs-block d-sm-block d-md-block d-lg-none ">
+			<a href="#"><i class="fa fa-bars"></i></a>
+		</div>
+		<div id="logo" >
+            <a href="{{ home_url }}" class="standard-logo" data-dark-logo="{{ url('image://logo.png') }}"><img src="{{ url('image://logo.jpg') }}" alt="{{ config.site.title }}"></a>
+        </div>
+
+	   {% block header_navigation %}
+            <!-- Primary Navigation
+                ============================================= -->
+            <nav id="primary-menu" class="d-xs-none d-sm-none d-md-none d-lg-block">
+            	<div class="container clearfix">
+                    {% if onepage %}
+                        <ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
+                            <li><a href="#" data-href="#wrapper"><div>Home</div></a></li>
+                            <li><a href="#" data-href="#_normativa"><div>Normativa</div></a></li>
+                            <li><a href="#" data-href="#_disciplinare"><div>Disciplinare</div></a></li>
+                            <li><a href="#" data-href="#_carni"><div>Tracciabilità</div></a></li>
+                            <li><a href="#" data-href="#_statistiche"><div>Statistiche</div></a></li>
+                            <li><a href="#" data-href="#_contatti"><div>Contatti</div></a></li>
+                        </ul>
+                    {% else %}
+                        {% include 'partials/navigation.html.twig' %}
+                    {% endif %}
+                </div>
+            </nav>
+        {% endblock %}
+	</div>
+</div>
+</header><!-- #header end -->

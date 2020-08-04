@@ -1,0 +1,43 @@
+{% set client = page.header.client  %}
+{% set clients = page.header.clients  %}
+{% set link_page = page.header.skills  %}
+
+
+<div class="container topmargin-lg cleafix">
+	<div class="clear"></div><div class="line notopmargin"></div>
+ 
+	<div class="col_two_fifth">
+		<h4>{{client.title}}</h4>
+		{{client.content}}
+		<ul class="clients-grid grid-3 nobottommargin clearfix">
+			{% for client in clients %}
+			  <li style="padding: 20px;"><a href="{{client.url}}"><img src="{{image.url}}" alt="Clienti"></a></li>
+	        {% endfor %}
+		</ul>
+	</div>
+
+	<div class="col_three_fifth col_last">
+		<h4>{{link_page.title}}</h4>
+		<div id="oc-posts" class="owl-carousel posts-carousel carousel-widget" data-margin="20" data-nav="true" data-pagi="true" data-items-xs="1" data-items-xl="2">
+			 {% for post in link_page.children %}
+			<div class="oc-item">
+				<div class="ipost clearfix">
+					<div class="entry-image">
+						{% for image in post.media.images %}
+						 <a href="#" data-lightbox="image"><img class="image_fade" src="{{ image.url }}" alt="{{ post.title }}"></a>
+				        {% endfor %}
+					</div>
+					<div class="entry-title">
+						<h3>{{ post.title }}</h3>
+					</div>
+					 
+					<div class="entry-content">
+						<p>{{ post.content }}</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			
+		</div>
+	</div>
+</div>

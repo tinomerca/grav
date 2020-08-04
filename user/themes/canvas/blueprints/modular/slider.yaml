@@ -1,0 +1,91 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        options:
+            unset@: true
+        content:
+            unset@: true
+        settings:
+          type: tab
+          title: Impostazioni
+          fields:
+            header.background_color:
+              type: text
+              label: Background Color
+            header.wrapper_class:
+              type: text
+              label: Wrapper Class
+              default: swiper_wrapper
+            header.style:
+                type: text
+                label: Style slider
+            header.section_class:
+              type: text
+              label: Class slider
+  
+        features:
+          type: tab
+          title: Slide
+          fields:
+            
+            header.slides:
+              name: slides
+              type: list
+              style: vertical
+              label: Slide
+              fields:
+                .title:
+                  type: text
+                  label: Titolo
+                .text:
+                  type: textarea
+                  label: Testo
+                .file:
+                  type: file
+                  destination: 'page@:/images/'
+                  multiple: false
+                  limit: 1
+                  filesize: 1
+                  accept:
+                    - image/*
+                .delay_time:
+                  type: text
+                  label: Time Delay
+                  default: 200
+                  validate:
+                    required: true
+                    type: int
+                .background_color:
+                    type: text
+                    label: Colore testo 
+                    default: dark
+                    validate:
+                      required: true
+                      type: string
+                .caption_class:
+                    type: text
+                    label: Class caption 
+                    default: slider-caption slider-caption-center
+                    validate:
+                      required: true
+                      type: string
+                .fade:
+                    type: text
+                    label: Animation
+                    default: fadeInUp
+                    validate:
+                      required: false
+                      type: string
+                .text_class:
+                    type: text
+                    label: Class del campo testo
+                    default: d-none d-sm-block
+                    validate:
+                      required: true
+                      type: string

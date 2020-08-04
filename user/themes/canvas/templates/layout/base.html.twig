@@ -1,0 +1,82 @@
+{% set theme_config     =  attribute(config.themes, config.system.pages.theme) %}
+{% set body_class      =  theme_config.body_class ? theme_config.body_class : 'stretched side-push-panel device-xl template-contactform-ready'%}
+{% set dark_mode       =  theme_config.dark_mode == true ? 'dark' : '' %}
+{% set onepage         =  theme_config.onepage %}
+{% set googlefont      =  theme_config.googlefont ? theme_config.googlefont : 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700'%}
+{% set fontawesome     =  theme_config.fontawesome ? theme_config.fontawesome : 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'%}
+
+
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="icon" type="image/jpg" href="{{ url('image://images/logo.jpg') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+   
+        {% do assets.addCss(fontawesome, 99) %}
+        {% do assets.addCss(googlefont, 99) %}
+        {% for ss in theme_config.css  %}
+            {% do assets.addCss(ss, 98) %}
+        {% endfor %}
+    
+        {{ assets.css() }}
+        
+        {% for iss in theme_config.inlinecss %}
+            {% do assets.addCss(iss, {loading: 'inline', position: 'before'}) %}
+        {% endfor %}
+        
+        {% if theme_config.dark_mode == true%}
+            {% do assets.addCss(dark, {loading: 'inline', position: 'before'}) %}
+        {% endif %}
+        {% do assets.addCss(onepage, {loading: 'inline', position: 'before'}) %}
+        {% do assets.addCss('theme://css/custom.min.css', {loading: 'inline', position: 'before'}) %}
+        
+        {{ assets.css('head') }}
+    
+        {% block javascripts %}
+            {% do assets.addJs('theme://js/jquery.js', {group:'bottom'}) %}
+            {% do assets.addJs('theme://js/functions.js', {group:'bottom'}) %}
+            {% do assets.addJs('theme://js/plugins.js', {group:'bottom'}) %}
+        {% endblock %}
+        {{ assets.js() }}
+    
+
+{% endblock head%}
+</head>
+ 
+<body class="{{body_class}} {{dark_mode}}">
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" class="clearfix">
+
+        {% block header %}
+         {% include 'partials/_header.html.twig' %}
+
+        {% endblock %}
+         
+        {% block slider %}{% endblock %}
+        {% block body %}{% endblock %}
+          
+        {% block footer %}
+   
+            {% include 'partials/_footer.html.twig' %}
+        {% endblock %}
+
+    </div>
+    <div id="gotoTop" class="fa fa-chevron-up"></div>
+    {% include 'partials/_side_panel.html.twig' %}
+
+    {% block bottom %}
+        {{ assets.js('bottom')|raw }}
+    {% endblock %}
+</body>
+</html>
+

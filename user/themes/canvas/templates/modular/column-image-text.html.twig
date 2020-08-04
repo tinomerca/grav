@@ -1,0 +1,63 @@
+{% set cols = page.header.columns %}
+{% set lightbox = page.header.image_lightbox == '1' %}
+{% set pos_subtitle = page.header.pos_subtitle == 'sopra' %}
+{% set divider = page.header.divider %}
+{% set parent_style = page.header.parent_style %}
+{% set image_class = page.header.image_class ? page.header.image_class : 'entry-image' %}
+
+{% switch page.header.number_columns %}
+
+    {% case "2" %}
+        {% set gridClass = 'col-md-6 col-sm-12' %}
+
+    {% case "3" %}
+        {% set gridClass = 'col-md-4 col-sm-12' %}
+
+    {% case "4" %}
+		{% set gridClass = 'col-md-3 col-sm-6 col-xs-12' %}
+
+	{% default %}
+		{% set gridClass = 'col-md-3 col-sm-6 col-xs-12' %}
+
+{% endswitch %}
+<div style="{{parent_style }}">
+	<div class="container m-b-lg-60">
+		<section id="news">
+			<div class="content-wrap">
+				<div class="container clear-bottommargin clearfix">
+					<div class="row">
+						{% for col in cols %}
+							{% set image = col['image']|first['path'] %}
+							<div class="{{ gridClass }} bottommargin">
+								<div class="ipost clearfix">
+									<div class="{{image_class}}">
+										{% if lightbox %}<a href="{{ image }}" data-lightbox="image">{% endif %}
+											<img class="{{ page.header.image_class }}" src="{{ image }}" alt="{{ col.title }}">
+										{% if lightbox %}</a>{% endif %}
+									</div>
+									<div class="entry-title">
+										{% if pos_subtitle %}
+											<span class="{{ page.header.subtitle_class }} f-w-300">{{ col.subtitle }}</span>
+											<h3 class="{{ page.header.title_class }} f-w-800">{{ col.title }}</h3>
+										{% else %}
+											<h3 class="{{ page.header.title_class }} f-w-800">{{ col.title }}</h3>
+											<span class="{{ page.header.subtitle_class }} f-w-300">{{ col.subtitle }}</span>
+										{% endif %}
+											
+										
+									</div>
+									{% if divider %}<hr>{% endif %}
+									<div class="entry-content">
+										<p class="{{ page.header.text_class }}">
+											{{ col.text }}
+										</p>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>

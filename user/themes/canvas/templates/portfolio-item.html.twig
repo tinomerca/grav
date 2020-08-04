@@ -1,0 +1,81 @@
+{% extends 'layout/blog_site.html.twig' %}
+
+{% block body %}
+    {% include 'partials/_title.html.twig' %}
+
+<div class="container clearfix">
+	<div class="content-wrap">
+	 
+	    {% include 'partials/_portfolio_gallery.html.twig' %}
+
+		<div class="col_two_third portfolio-single-content  nobottommargin">
+
+			<!-- Portfolio Single - Description
+			============================================= -->
+			<div class="fancy-title title-bottom-border">
+				<h2>{{ t("PORTFOLIO.DESCRIPTION") }}</h2>
+			</div>
+
+			<div class=" nobottommargin">
+				<p>{{page.content}}</p>
+			</div>
+
+			 
+			<!-- Portfolio Single - Description End -->
+
+		</div><!-- .portfolio-single-content end -->
+
+		<div class="col_one_third col_last nobottommargin">
+
+			<!-- Portfolio Single - Meta
+			============================================= -->
+			<div class="card events-meta">
+				<div class="card-body">
+					<ul class="portfolio-meta nobottommargin">
+						<li><span><i class="icon-user"></i>{{ t("PORTFOLIO.LOCATION") }}:</span> John Doe</li>
+						<li><span><i class="icon-calendar3"></i>{{ t("PORTFOLIO.OWNER") }}:</span> 17th March 2014</li>
+						<li><span><i class="icon-calendar3"></i>{{ t("PORTFOLIO.DATE") }}:</span> 17th March 2014</li>
+						<li><span><i class="icon-link"></i>{{ t("PORTFOLIO.TYPE") }}:</span> <a href="#">Google</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- Portfolio Single - Meta End -->
+
+			<!-- Portfolio Single - Share
+			============================================= -->
+			<div class="si-share nobordercol_last clearfix">
+				<span>{{t('SHARE')}}:</span>
+				<div>
+					{% for social in site.social %}
+					<a href="{{social.url}}" class="social-icon si-borderless si-{{social.class}}">
+						<i class="icon-{{social.class}}"></i>
+						<i class="icon-{{social.class}}"></i>
+					</a> 
+				    {% endfor %}
+				</div>
+			</div>
+			<!-- Portfolio Single - Share End -->
+
+		</div>
+        {% set siblings = page.collection({ items: '@self.siblings'}).order('date', 'desc').slice(0, 5) %}
+		{% if count(siblings) > 0 %}
+		<div class="clear"></div>
+
+		<div class="divider divider-center"><i class="icon-circle"></i></div>
+
+
+
+		<!-- Related Portfolio Items
+		============================================= -->
+		<h4>{{t('PORTFOLIO.RELATED')}}</h4>
+
+		<div id="related-portfolio" class="owl-carousel portfolio-carousel carousel-widget" data-margin="20" data-pagi="false" data-autoplay="5000" data-items-xs="1" data-items-sm="2" data-items-md="3"  data-items-xl="4">
+
+			 {% include 'partials/_portfolio_related.html.twig' %}
+	 
+		</div><!-- .portfolio-carousel end -->
+	    {% endif %}
+	</div>
+</div>
+
+{% endblock %}

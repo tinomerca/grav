@@ -1,0 +1,38 @@
+<div class="container">
+	<section id="news" class="topmargin bottommargin">
+	    <div class="content-wrap">
+			<div class="container clear-bottommargin clearfix">
+				<div class="row">	
+					{% for post in page.find('/blog').children.order('date', 'desc').slice(0, 5) %}
+			            {% set image = post.media.images|first %}
+			            <div class="col-lg-3 col-md-6 bottommargin">
+							<div class="ipost clearfix">
+								<div class="entry-image">
+									<a href="{{ image.url }}" data-lightbox="image"><img class="image_fade" src="{{ image.url }}" alt="{{ post.title }}"></a>
+								</div>
+								<div class="entry-title">
+									<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+								</div>
+								<ul class="entry-meta clearfix">
+									<li><i class="icon-calendar3"></i>{% include 'partials/_date.html.twig' with {post: post} %}</li>
+									<li><a href="#"><i class="icon-camera-retro"></i></a></li>
+								</ul>
+								<div class="entry-content">
+									<p>
+									{% if post.summary != post.content %}
+									{{ post.summary|raw }}
+									{% else %}
+									{{ post.content|raw }}
+									{% endif %}
+									</p>
+						
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+ 

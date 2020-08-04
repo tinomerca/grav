@@ -1,0 +1,18 @@
+{% set feed_url = blog.url == '/' or blog.url == base_url_relative ? (base_url_relative~'/'~blog.slug) : blog.url %}
+{% set new_base_url = 'blog'  %}
+
+
+{% if config.plugins.simplesearch.enabled %}
+<div class="widget clearfix">
+     <h4 class="nomargin">Cerca nel Blog</h4>
+    {% include 'partials/simplesearch_searchbox.html.twig' %}
+</div>
+{% endif %}
+
+{% include 'partials/blog/_widget_popular.html.twig' %}
+{% include 'partials/blog/_widget_external_links.html.twig' %}
+ 
+
+
+
+

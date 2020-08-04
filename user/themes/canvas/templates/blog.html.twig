@@ -1,0 +1,62 @@
+{% extends 'layout/base.html.twig' %}
+
+
+{% set collection = page.collection() %}
+{% set blog = page.find(header_var('blog_url')|defined(theme_var('blog-page'))) %}
+{% set show_breadcrumbs = header_var('show_breadcrumbs', [page, blog])|defined(true) %}
+{% set show_sidebar = header_var('show_sidebar', [page, blog])|defined(true)  %}
+{% set show_pagination = header_var('show_pagination', [page, blog])|defined(true) %}
+
+
+ 
+{% block body %}
+    {% include 'partials/_title.html.twig' %}
+
+    <section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+
+					<!-- Post Content
+					============================================= -->
+					<div class="postcontent nobottommargin clearfix">
+
+                        <!-- Posts
+						============================================= -->
+                        <div id="posts" class=" small-thumbs">
+                            {% for child in collection %}
+                            {% if child.header.settings.to_link is empty %}
+                                {% include 'partials/blog-list-item.html.twig' with {blog: page, page: child} %}
+                            {% else %}
+                               {% include 'partials/blog-list-item-no-image.html.twig' with {blog: page, page: child} %}
+                            {% endif  %}
+                            {% endfor %}
+                        </div>
+                         
+                        {% if show_pagination and config.plugins.pagination.enabled and collection.params.pagination %}
+                         <!-- Pagination
+						============================================= -->
+						<div class="row mb-3">
+							<div class="col-12">
+								{% include 'partials/pagination.html.twig' with {base_url: page.url, pagination: collection.params.pagination} %}
+							</div>
+						</div>
+						<!-- .pager end -->
+                        {% endif %}
+                    </div>
+                    {% block sidebar %}
+                    <!-- Sidebar
+					============================================= -->
+					<div class="sidebar nobottommargin col_last clearfix">
+						<div class="sidebar-widgets-wrap">
+                            {% include 'partials/sidebar.html.twig' %}
+                        </div>
+                    </div>
+                    {% endblock %}
+                </div>
+            </div>
+    </section>
+ 
+{% endblock %}
+
+
+

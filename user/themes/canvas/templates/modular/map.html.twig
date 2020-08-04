@@ -1,0 +1,38 @@
+{% set conf = page.header.conf %}
+{% set main_class = conf.main_class ? conf.main_class : '' %}
+{% set margin_class = conf.margin_class    %}
+{% set background_color = conf.background_color  %}
+{% set title = conf.title  %}
+{% set indirizzo = conf.indirizzo  %}
+{% set cx = conf.cx  %}
+{% set cy = conf.cy  %}
+{% set indirizzo = conf.indirizzo  %}
+{% set tel = conf.telefono  %}
+{% set row = conf.row   %}
+{% set columns = conf.columns %}
+
+<div class="{{main_class}}  clearfix" id="{{page.title}}">
+
+    <div class="{{margin_class}}"></div>
+        <div id="map" class="" style="height: 300px;"></div> 
+    </div>
+
+</div>
+
+{% block javascripts %}
+     {% do assets.addJs('theme://leaflet/leaflet.js', 100) %}
+     {{ parent() }}
+{% endblock %}
+
+
+{% script in 'bottom' priority: 20 %}
+$(document).ready(function() {
+    var map = L.map('map').setView([{{cx}}, {{cy}}], 13);
+    var marker = L.marker([{{cx}}, {{cy}}]).addTo(map);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: 'OpenStreetMap' 
+    }).addTo(map);
+});
+{% endscript %}
+{% do assets.addInlineJs(script) %}
+

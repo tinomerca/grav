@@ -1,0 +1,29 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        options:
+            unset@: true
+        content:
+            unset@: true
+        html:
+          type: tab
+          title: HTML
+          fields:
+            header.content1:
+              name: content
+              type: editor
+              autofocus: true
+              codemirror:
+                mode: 'text/html'
+                smartIndent: true
+                autofocus: true
+                indentWithTabs: true
+                lineNumbers: true
+                styleActiveLine: true
+                lint: true
+                theme: "dracula"

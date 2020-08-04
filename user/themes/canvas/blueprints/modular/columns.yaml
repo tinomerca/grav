@@ -1,0 +1,46 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        options:
+            unset@: true
+        content:
+            unset@: true
+        column1:
+          type: tab
+          title: Colonna 1
+          import@:
+            type: modular/columns/column1
+            context: blueprints://
+        column2:
+          type: tab
+          title: Colonna 2
+          import@:
+            type: modular/columns/column2
+            context: blueprints://
+        column3:
+          type: tab
+          title: Colonna 3
+          import@:
+            type: modular/columns/column3
+            context: blueprints://
+        column4:
+          type: tab
+          title: Colonna 4
+          import@:
+            type: modular/columns/column4
+            context: blueprints://
+        settings:
+          type: tab
+          title: Impostazioni
+          fields:
+            header.conf.main_class:
+              type: text
+              label: Main Class
+            
+                    

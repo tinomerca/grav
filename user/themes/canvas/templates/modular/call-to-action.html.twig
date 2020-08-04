@@ -1,0 +1,12 @@
+{% set button_class =  page.header.button_class  ? page.header.button_class : 'button button-full button-dark center tright bottommargin-lg'  %}
+{% set link_to =  page.header.link_to  ? page.header.link_to : '#'  %}
+{% set text =  page.header.text  ? page.header.text : 'We have more than 100+ predefined Portfolio Grid Layouts. <strong>See More</strong> <i class="icon-caret-right" style="top:4px;"></i>'  %}
+{% set style_container =  page.header.style_container  %}
+
+<div style="{{style_container}}">
+    <a href="{{link_to}}" class="{{button_class}}">
+        <div class="container clearfix">
+            {{text}}
+        </div>
+    </a>
+</div>
