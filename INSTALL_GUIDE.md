@@ -1,3 +1,11 @@
+# Fork del progetto
+### Rename del progetto sul github personale
+### Clonare il progetto in locale
+### Lanciare bin/grav install per installare le dipendenze
+
+
+
+
 # Grav CMS + CANVAS
 ```
 bin/gpm selfupgrade -f 
